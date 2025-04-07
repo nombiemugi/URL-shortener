@@ -6,7 +6,20 @@
   justify-content: center;
 }
 
+.footer .Link {
+  text-decoration: none;
+  color: var(--primary-color);
+  font-family: "Bebas Neue", sans-serif;
+}
+
+.footer .Link:hover {
+  text-decoration: underline;
+  color: #ffffff;
+  transition: color 0.3s ease-in-out; /* Añade la propiedad y la duración de la transición */
+}
+
 .footer{
+  font-family: "bebas Neue", sans-serif;
   justify-content: center;
   align-items: center;
   height: 20vh;
@@ -79,6 +92,26 @@
   border: none;
   cursor: pointer;
 }
+
+
+.loadingContainer p{
+  font-size: 2rem;
+  color: #ffffff;
+  padding: 1rem 1rem;
+}
+
+.errorContainer p{
+  color:#ffffff
+}
+
+.errorContainer button{
+  padding: 0.5rem 1rem;
+  color: #ffffff;
+  background-color: var(--primary-color);
+  border: none;
+  cursor: pointer;
+}
+
 
 /* background */
 

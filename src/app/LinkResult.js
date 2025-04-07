@@ -8,7 +8,7 @@ const LinkResult = ({ inputValue }) => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
-  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3aFdYa0k3aml2VmRmNWZCUlA5RXciLCJpYXQiOjE3NDQwMDU1OTIuNDAxLCJsaW1pdCI6NTAwLCJ0aW1lZnJhbWUiOjg2NDAwLCJvcmdhbmlzYXRpb24iOiJiYzVmZDI1ZC02YjY3LTQ1MjctYmMzMi1iZWRjMzczYzIzODMiLCJ3b3Jrc3BhY2UiOjM1MjI1LCJ1c2VyIjoxNzY3NSwiZXhwIjoxNzUxNzgxNTcwfQ.uUhF7g-wlyReR3Cr8VYiHIN6Nc_DOrbXd8TpogZlY1M'; // Replace with your actual token
+  const accessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiI3aFdYa0k3aml2VmRmNWZCUlA5RXciLCJpYXQiOjE3NDQwMDU1OTIuNDAxLCJsaW1pdCI6NTAwLCJ0aW1lZnJhbWUiOjg2NDAwLCJvcmdhbmlzYXRpb24iOiJiYzVmZDI1ZC02YjY3LTQ1MjctYmMzMi1iZWRjMzczYzIzODMiLCJ3b3Jrc3BhY2UiOjM1MjI1LCJ1c2VyIjoxNzY3NSwiZXhwIjoxNzUxNzgxNTcwfQ.uUhF7g-wlyReR3Cr8VYiHIN6Nc_DOrbXd8TpogZlY1M';
 
   const copyToClipboard = async () => {
     try {
@@ -30,17 +30,12 @@ const LinkResult = ({ inputValue }) => {
         'https://api.pxl.to/api/v1/short',
         { 
           destination: inputValue,
-          // You can add optional parameters here:
-          // title: "My Custom Title",
-          // description: "My link description",
-          // image: "https://example.com/image.png",
-          // favicon: "https://example.com/favicon.ico"
         },
         {
           headers: {
             'Content-Type': 'application/json',
             'Authorization': `Bearer ${accessToken}`,
-            'Accept-Encoding': 'gzip' // Recommended by API docs
+            'Accept-Encoding': 'gzip'
           },
           timeout: 10000
         }
@@ -74,14 +69,16 @@ const LinkResult = ({ inputValue }) => {
   }, [inputValue]);
 
   if (loading) {
-    return <p className="noData">Loading...</p>;
+    return <div className="loadingContainer">
+      <p>Loading...</p>
+      </div>;
   }
 
   if (error) {
     return (
       <div className="errorContainer">
         <p className="errorText">Error: {error}</p>
-        <button onClick={fetchData}>Retry</button>
+        <button onClick={fetchData}>Reload</button>
       </div>
     );
   }

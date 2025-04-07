@@ -14,7 +14,7 @@ function App() {
       <BackgroundAnimate />
       <LinkResult inputValue={inputValue} />
       <footer className="footer">
-      <p>© Andres Soler | 2025 | All rights reserved</p>
+      <p><a href="https://andressoler.netlify.app/" target="_blank" className='Link'>© Andres Soler</a> | 2025 | All rights reserved</p>
       </footer>
     </div>
     
